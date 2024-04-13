@@ -1,0 +1,82 @@
+CCNP encor/enarsi
+
+rivanhrsource.com
+
+Task 1: Visit your best Friend
+
+IMPORT: https://github.com/rivancorp/CCNPent
+
+
+config t
+ip vrf clientUBAla
+ rd 999:4
+ route-target export 64999:4
+ route-target import 64999:4
+
+config t
+ip vrf clientUBBgc
+ rd 999:4
+ route-target export 64999:4
+ route-target import 64999:4
+
+NXOSA:
+
+config t
+	router bgp
+	router ospf
+	router lisp
+
+Why Nexus
+
+config t
+hostname nexusjp
+int lo1
+ip add 1.1.1.1 255.255.255.255
+
+config t
+hostname nexusph
+int lo2
+ip add 2.2.2.2 255.255.255.255
+checkpoint nexusph
+
+config t
+hostname nexusph
+int lo3
+ip add 3.3.3.3 255.255.255.255
+checkpoint nexusUSA
+
+feature bgp
+feature ospf
+feature interface-vlan
+feature nv overlay
+feature vn-segment-vlan-based
+system jumbomtu 9216
+
+https://github.com/rivancorp/lisa
+
+
+use address-family (new BGP)
+
+config t
+router bgp 130
+ bgp router-id 10.3.3.3
+ neighbor 209.165.202.130 remote-as 110
+ neighbor 209.165.200.230 remote-as 120
+ address-family ipv4
+ neighbor 209.165.202.130 activate
+ neighbor 209.165.200.230 activate
+ network 209.165.201.5 activate
+ network 209.165.201.15 activate
+
+Youtube: TeamRivan
+
+
+CCNP Enterprise
+
+Core: ENCORE: 350-401
+
+Spec: ENARSI ()
+      SDWan
+      DevNet
+
+pearson vue exam cisco
